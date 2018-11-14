@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<div class="home">
+    {% if page.title %}
+        <h1 class="page-heading">{{ page.title }}</h1>
+    {% endif %}
+
+    {{ content }}
+
+    {% if site.articles.size > 0 %}
+        <h3 class="post-list-heading">{{ page.list_title | default: "Articles" }}</h3>
+        <ul class="post-list">
+            {% for article in site.articles %}
+            <li>
+                {% assign date_format = site.noon.date_format | default: "%b %-d, %Y" %}
+                <span class="post-meta">{{ article.date | date: date_format }}</span>
+                <h4>
+                    <a class="post-link" href="{{ article.url }}">{{ article.title | escape }}</a>
+                </h4>
+                {% if site.show_excerpts %}
+                    {{ article.excerpt }}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if site.posts.size > 0 %}
+        <h3 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h3>
+        <ul class="post-list">
+            {% for post in site.posts %}
+            <li>
+                {% assign date_format = site.noon.date_format | default: "%b %-d, %Y" %}
+                <span class="post-meta">{{ post.date | date: date_format }}</span>
+                <h4>
+                    <a class="post-link" href="{{ post.url }}">{{ post.title | escape }}</a>
+                </h4>
+
+                {% if site.show_excerpts %}
+                    {{ post.excerpt }}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <p class="feed-subscribe"><svg class="svg-icon orange"><use xlink:href="{{ '/assets/noon-social-icons.svg#rss' | relative_url }}"></use></svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p>   
+
+    {% endif %}    
+</div>

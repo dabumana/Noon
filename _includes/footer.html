@@ -1,0 +1,37 @@
+<footer class="site-footer h-card">
+    <data class="u-url" href="{{ "/" | relative_url }}"></data>
+    <div class="wrapper">
+        <h2 class="footer-heading">{{ site.title | escape }}</h2>
+        <div class="footer-col-wraper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">
+                        {% if site.author %}
+                          Software Engineering / Reverse Engineering: {{ site.author | escape }}
+                        {% else %}
+                            {{ site.title | escape }}
+                        {% endif %}
+                    </li>
+                    {% if site.email %}
+                        <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+                    {% endif %}
+                    <br>
+                    <li>Vulnerabilities, security reports and interesting info can be sended to the following e-mail:</li>
+                    {% if site.security_email %}
+                        <li><a class="u-email" href="mailto:{{ site.security_email }}">{{ site.security_email }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+            <div class="footer-col footer-col-2">
+                {% include social.html %}
+            </div>
+
+            <div class="footer-col footer-col-3">
+                <p>{{ site.description | escape }}</p>
+                <p><em>"Learn, share and contribute, the curiosity with discipline builds unimaginable concepts and forms."</em></p>
+                <p><a href="https://aaaaarg.fail/">Choose your path, and be the key.</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
