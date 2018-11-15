@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.summary       = "Simple-minimal blog with Ruby, Bootstrap and Sass."
   spec.homepage      = "https://dabumana.github.io"
   spec.license       = "MIT"
-  spec.metadata["plugin_type"] = "theme"
+  spec.metadata["plugin_type"] = "noon"
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(_layouts|_includes|_sass|assets)!i) }
   spec.add_runtime_dependency "bootstrap", "~> 4.1.3"
   spec.add_runtime_dependency "jekyll", "~> 3.7.4"
